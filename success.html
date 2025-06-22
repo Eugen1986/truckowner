@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documents Submitted Successfully</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Oswald', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .success-container {
+            max-width: 600px;
+            padding: 60px 40px;
+            text-align: center;
+            background: #1a1a1a;
+            border-radius: 16px;
+            border: 1px solid #333333;
+        }
+
+        .success-icon {
+            font-size: 80px;
+            color: #4ade80;
+            margin-bottom: 32px;
+        }
+
+        .success-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+
+        .success-message {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #b0b0b0;
+            margin-bottom: 40px;
+        }
+
+        .back-button {
+            background: #ffffff;
+            color: #0a0a0a;
+            padding: 18px 36px;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-button:hover {
+            background: #e0e0e0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 30px rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <i class="fas fa-check-circle success-icon"></i>
+        <h1 class="success-title">Documents Submitted Successfully!</h1>
+        <p class="success-message">
+            Thank you for submitting your documents. We have received your application and will review it shortly. 
+            You will be contacted within 24-48 hours regarding next steps.
+        </p>
+        <a href="/" class="back-button">
+            <i class="fas fa-home"></i>
+            Back to Home
+        </a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Upload Documents</title>
+    
+    <!-- Oswald Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Oswald', sans-serif;
+            background-color: #fafafa;
+            color: #1a1a1a;
+            line-height: 1.6;
+            font-size: 16px;
+            letter-spacing: 0.02em;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #1a1a1a;
+        }
+
+        .page-title {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .page-subtitle {
+            font-size: 18px;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 48px;
+            font-weight: 400;
+            text-transform: none;
+            letter-spacing: 0.02em;
+        }
+
+        /* Header */
+        .header {
+            padding: 40px 0;
+            background: #ffffff;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #4a4a4a;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 32px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        /* Form Section */
+        .form-section {
+            padding: 60px 0;
+            background: #ffffff;
+        }
+
+        .form-container {
+            background: #fafafa;
+            border-radius: 20px;
+            padding: 48px;
+            border: 1px solid #e8e8e8;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 32px;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #e8e8e8;
+            border-radius: 12px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 16px;
+            background: #ffffff;
+            transition: all 0.3s ease;
+            color: #1a1a1a;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #1a1a1a;
+            box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
+        }
+
+        /* File Upload */
+        .file-upload-container {
+            position: relative;
+            border: 2px dashed #e8e8e8;
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+            background: #ffffff;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .file-upload-container:hover {
+            border-color: #1a1a1a;
+            background: #f5f5f5;
+        }
+
+        .file-upload-container.dragover {
+            border-color: #1a1a1a;
+            background: #f0f0f0;
+        }
+
+        .file-input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .file-upload-content {
+            pointer-events: none;
+        }
+
+        .file-upload-icon {
+            font-size: 48px;
+            color: #888888;
+            margin-bottom: 16px;
+        }
+
+        .file-upload-text {
+            font-size: 16px;
+            color: #4a4a4a;
+            margin-bottom: 8px;
+        }
+
+        .file-upload-hint {
+            font-size: 14px;
+            color: #888888;
+        }
+
+        .file-selected {
+            display: none;
+            background: #f0f8f0;
+            border: 2px solid #4caf50;
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 8px;
+        }
+
+        .file-selected.show {
+            display: block;
+        }
+
+        .file-name {
+            font-weight: 500;
+            color: #2e7d32;
+            margin-bottom: 4px;
+        }
+
+        .file-size {
+            font-size: 14px;
+            color: #666666;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 18px 36px;
+            border-radius: 12px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: #1a1a1a;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: #333333;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #1a1a1a;
+            border: 2px solid #1a1a1a;
+        }
+
+        .btn-secondary:hover {
+            background: #1a1a1a;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 48px;
+        }
+
+        /* Progress Steps */
+        .progress-steps {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 24px;
+            background: #e8e8e8;
+            color: #888888;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .step.active {
+            background: #1a1a1a;
+            color: #ffffff;
+        }
+
+        .step.completed {
+            background: #4caf50;
+            color: #ffffff;
+        }
+
+        /* Required indicator */
+        .required {
+            color: #f44336;
+        }
+
+        /* Error states */
+        .form-input.error {
+            border-color: #f44336;
+        }
+
+        .error-message {
+            color: #f44336;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        /* Success message */
+        .success-message {
+            background: #e8f5e8;
+            border: 1px solid #4caf50;
+            border-radius: 12px;
+            padding: 16px;
+            color: #2e7d32;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 32px 24px;
+            }
+
+            .form-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .progress-steps {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <section class="header">
+        <div class="container">
+            <a href="index_new.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </a>
+            <h1 class="page-title">Upload Your Documents</h1>
+            <p class="page-subtitle">
+                Please upload all required documents to complete your registration with our partner dispatch companies
+            </p>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <div class="container">
+            <div class="progress-steps">
+                <div class="step active">
+                    <i class="fas fa-user"></i>
+                    Personal Info
+                </div>
+                <div class="step">
+                    <i class="fas fa-file-upload"></i>
+                    Documents
+                </div>
+                <div class="step">
+                    <i class="fas fa-check"></i>
+                    Complete
+                </div>
+            </div>
+
+            <div class="form-container">
+                <form id="documentUploadForm" method="post" enctype="multipart/form-data">
+                    <!-- Personal Information -->
+                    <div class="form-group">
+                        <label for="fullName" class="form-label">Full Name <span class="required">*</span></label>
+                        <input type="text" id="fullName" name="full_name" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Phone Number <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="(555) 123-4567" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+
+                    <!-- Required Documents -->
+                    <div class="form-group">
+                        <label for="driversLicense" class="form-label">CDL Driver License <span class="required">*</span></label>
+                        <div class="file-upload-container" onclick="document.getElementById('driversLicense').click()">
+                            <input type="file" id="driversLicense" name="drivers_license" class="file-input" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" required>
+                            <div class="file-upload-content">
+                                <i class="fas fa-id-card file-upload-icon"></i>
+                                <div class="file-upload-text">Click to upload CDL License</div>
+                                <div class="file-upload-hint">PDF, JPG, PNG, DOC up to 16MB</div>
+                            </div>
+                        </div>
+                        <div class="file-selected" id="driversLicense-selected">
+                            <div class="file-name"></div>
+                            <div class="file-size"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="medicalCertificate" class="form-label">DOT Medical Certificate <span class="required">*</span></label>
+                        <div class="file-upload-container" onclick="document.getElementById('medicalCertificate').click()">
+                            <input type="file" id="medicalCertificate" name="medical_certificate" class="file-input" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" required>
+                            <div class="file-upload-content">
+                                <i class="fas fa-clipboard-check file-upload-icon"></i>
+                                <div class="file-upload-text">Click to upload DOT Medical Certificate</div>
+                                <div class="file-upload-hint">PDF, JPG, PNG, DOC up to 16MB</div>
+                            </div>
+                        </div>
+                        <div class="file-selected" id="medicalCertificate-selected">
+                            <div class="file-name"></div>
+                            <div class="file-size"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="socialSecurity" class="form-label">Social Security Card <span class="required">*</span></label>
+                        <div class="file-upload-container" onclick="document.getElementById('socialSecurity').click()">
+                            <input type="file" id="socialSecurity" name="social_security" class="file-input" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" required>
+                            <div class="file-upload-content">
+                                <i class="fas fa-credit-card file-upload-icon"></i>
+                                <div class="file-upload-text">Click to upload Social Security Card</div>
+                                <div class="file-upload-hint">PDF, JPG, PNG, DOC up to 16MB</div>
+                            </div>
+                        </div>
+                        <div class="file-selected" id="socialSecurity-selected">
+                            <div class="file-name"></div>
+                            <div class="file-size"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="vehicleRegistration" class="form-label">Vehicle Registration <span class="required">*</span></label>
+                        <div class="file-upload-container" onclick="document.getElementById('vehicleRegistration').click()">
+                            <input type="file" id="vehicleRegistration" name="vehicle_registration" class="file-input" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" required>
+                            <div class="file-upload-content">
+                                <i class="fas fa-file-alt file-upload-icon"></i>
+                                <div class="file-upload-text">Click to upload Vehicle Registration</div>
+                                <div class="file-upload-hint">PDF, JPG, PNG, DOC up to 16MB</div>
+                            </div>
+                        </div>
+                        <div class="file-selected" id="vehicleRegistration-selected">
+                            <div class="file-name"></div>
+                            <div class="file-size"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="insuranceCertificate" class="form-label">Insurance Certificate <span class="required">*</span></label>
+                        <div class="file-upload-container" onclick="document.getElementById('insuranceCertificate').click()">
+                            <input type="file" id="insuranceCertificate" name="insurance_certificate" class="file-input" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" required>
+                            <div class="file-upload-content">
+                                <i class="fas fa-shield-alt file-upload-icon"></i>
+                                <div class="file-upload-text">Click to upload Insurance Certificate</div>
+                                <div class="file-upload-hint">PDF, JPG, PNG, DOC up to 16MB</div>
+                            </div>
+                        </div>
+                        <div class="file-selected" id="insuranceCertificate-selected">
+                            <div class="file-name"></div>
+                            <div class="file-size"></div>
+                        </div>
+                    </div>
+
+                    <!-- Optional Documents -->
+                    <div class="form-group">
+                        <label for="iftaPermit" class="form-label">IFTA Permit (if applicable)</label>
+                        <div class="file-upload-container" onclick="document.getElementById('iftaPermit').click()">
+                            <input type="file" id="iftaPermit" name="ifta_permit" class="file-input" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx">
+                            <div class="file-upload-content">
+                                <i class="fas fa-file-contract file-upload-icon"></i>
+                                <div class="file-upload-text">Click to upload IFTA Permit</div>
+                                <div class="file-upload-hint">PDF, JPG, PNG, DOC up to 16MB (Optional)</div>
+                            </div>
+                        </div>
+                        <div class="file-selected" id="iftaPermit-selected">
+                            <div class="file-name"></div>
+                            <div class="file-size"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mcAuthority" class="form-label">MC Authority (if you have one)</label>
+                        <div class="file-upload-container" onclick="document.getElementById('mcAuthority').click()">
+                            <input type="file" id="mcAuthority" name="mc_authority" class="file-input" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx">
+                            <div class="file-upload-content">
+                                <i class="fas fa-certificate file-upload-icon"></i>
+                                <div class="file-upload-text">Click to upload MC Authority</div>
+                                <div class="file-upload-hint">PDF, JPG, PNG, DOC up to 16MB (Optional)</div>
+                            </div>
+                        </div>
+                        <div class="file-selected" id="mcAuthority-selected">
+                            <div class="file-name"></div>
+                            <div class="file-size"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <a href="index_new.html" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i>
+                            Back
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-upload"></i>
+                            Submit Documents
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        console.log('Document upload form loaded');
+
+        // File upload handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const fileInputs = document.querySelectorAll('.file-input');
+            
+            fileInputs.forEach(input => {
+                input.addEventListener('change', function() {
+                    handleFileSelect(this);
+                });
+            });
+
+            // Form validation
+            const form = document.getElementById('documentUploadForm');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                if (validateForm()) {
+                    // Here you would normally submit the form
+                    showSuccessMessage();
+                }
+            });
+
+            // Phone number formatting
+            const phoneInput = document.getElementById('phone');
+            phoneInput.addEventListener('input', function() {
+                this.value = formatPhoneNumber(this.value);
+            });
+        });
+
+        function handleFileSelect(input) {
+            const file = input.files[0];
+            const container = input.closest('.form-group');
+            const selectedDiv = container.querySelector('.file-selected');
+            
+            if (file) {
+                const fileName = selectedDiv.querySelector('.file-name');
+                const fileSize = selectedDiv.querySelector('.file-size');
+                
+                fileName.textContent = file.name;
+                fileSize.textContent = formatFileSize(file.size);
+                selectedDiv.classList.add('show');
+                
+                // Update upload container style
+                const uploadContainer = container.querySelector('.file-upload-container');
+                uploadContainer.style.borderColor = '#4caf50';
+                uploadContainer.style.backgroundColor = '#f0f8f0';
+            }
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        function formatPhoneNumber(value) {
+            const phoneNumber = value.replace(/\D/g, '');
+            const phoneNumberLength = phoneNumber.length;
+            
+            if (phoneNumberLength < 4) return phoneNumber;
+            if (phoneNumberLength < 7) {
+                return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`;
+            }
+            return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 10)}`;
+        }
+
+        function validateForm() {
+            const requiredFields = document.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    field.classList.add('error');
+                    isValid = false;
+                } else {
+                    field.classList.remove('error');
+                }
+            });
+            
+            return isValid;
+        }
+
+        function showSuccessMessage() {
+            const form = document.getElementById('documentUploadForm');
+            const successHTML = `
+                <div class="success-message">
+                    <i class="fas fa-check-circle" style="font-size: 48px; margin-bottom: 16px;"></i>
+                    <h3 style="margin-bottom: 16px;">Documents Submitted Successfully!</h3>
+                    <p>Thank you for submitting your documents. Our team will review them and contact you within 24-48 hours.</p>
+                    <div style="margin-top: 24px;">
+                        <a href="index_new.html" class="btn btn-primary">Return to Home</a>
+                    </div>
+                </div>
+            `;
+            
+            form.innerHTML = successHTML;
+            
+            // Update progress steps
+            const steps = document.querySelectorAll('.step');
+            steps.forEach(step => step.classList.add('completed'));
+        }
+    </script>
+</body>
+</html>

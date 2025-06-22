@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Trucking Services - Owner Operator Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Oswald', sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Единообразное межстрочное расстояние для всех заголовков */
+        h1, h2, h3, h4, h5, h6,
+        .hero-title, .section-title, .hero-subtitle,
+        .quote-text, .download-store {
+            line-height: 1.0 !important;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+
+
+        .cta-button {
+            background: #007bff;
+            color: #ffffff;
+            padding: 18px 36px;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cta-button:hover {
+            background: #0056b3;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 30px rgba(0, 123, 255, 0.3);
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 60px 0 40px;
+            text-align: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+        }
+        
+        .language-switcher {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 6px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .language-switcher button {
+            background: none;
+            border: none;
+            padding: 8px 16px;
+            margin: 0 4px;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #666;
+        }
+        
+        .language-switcher button.active {
+            background: #007bff;
+            color: white;
+        }
+        
+        .language-switcher button:hover:not(.active) {
+            background: rgba(0, 123, 255, 0.1);
+            color: #007bff;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 40px;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero-text {
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.0;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #333333, #666666);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #666666;
+            margin-bottom: 30px;
+            line-height: 1.0;
+        }
+
+        .owner-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #e9ecef;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-features {
+            text-align: center;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            color: #666666;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-list li i {
+            color: #007bff;
+            margin-right: 12px;
+            width: 20px;
+        }
+
+        /* Companies Section */
+        .companies-section {
+            padding: 40px 0;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333333;
+            line-height: 1.0;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666666;
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .companies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .company-card {
+            background: #000000;
+            border: 1px solid #333333;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .company-card:hover {
+            border-color: #666666;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+        }
+
+        .company-logo {
+            width: 100%;
+            height: 80px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .company-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            transition: all 0.3s ease;
+        }
+
+        .company-card:hover .company-logo img {
+            filter: brightness(0) invert(1) brightness(1.2);
+            transform: scale(1.05);
+        }
+
+        .company-name {
+            display: none;
+        }
+
+        /* Testimonial Styles */
+        .testimonial-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 24px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .testimonial-avatar {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .testimonial-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #007bff;
+            box-shadow: 0 4px 20px rgba(0, 123, 255, 0.3);
+        }
+
+        .testimonial-quote {
+            margin: 0;
+            text-align: center;
+        }
+
+        .quote-text {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #495057;
+            font-style: italic;
+            margin-bottom: 16px;
+            position: relative;
+            padding: 0 30px;
+        }
+
+        .quote-text::before {
+            content: '"';
+            font-size: 48px;
+            color: #007bff;
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-family: serif;
+        }
+
+        .quote-text::after {
+            content: '"';
+            font-size: 48px;
+            color: #007bff;
+            position: absolute;
+            right: 0;
+            bottom: -20px;
+            font-family: serif;
+        }
+
+        .quote-author {
+            font-size: 16px;
+            color: #007bff;
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        .owner-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 24px;
+            border: 4px solid #fff;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 18px 36px;
+            background: transparent;
+            color: #495057;
+            text-decoration: none;
+            border-radius: 12px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            border: 2px solid #007bff;
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            background: #007bff;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 30px rgba(0, 123, 255, 0.3);
+            text-decoration: none;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+            justify-content: center;
+        }
+
+        .hero-buttons .cta-button,
+        .hero-buttons .btn-secondary {
+            min-width: 220px;
+            width: 220px;
+            justify-content: center;
+        }
+
+        /* Download App Section */
+        .download-section {
+            padding: 40px 0;
+            background: #ffffff;
+        }
+
+        .download-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .download-btn {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 24px;
+            background: #ffffff;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            color: #495057;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            min-width: 200px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .download-btn:hover {
+            background: #007bff;
+            border-color: #007bff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        .download-btn i {
+            font-size: 32px;
+            color: #007bff;
+        }
+
+        .download-btn:hover i {
+            color: #ffffff;
+        }
+
+        .download-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .download-label {
+            font-size: 12px;
+            color: #6c757d;
+            line-height: 1;
+        }
+
+        .download-store {
+            font-size: 16px;
+            font-weight: 600;
+            color: #495057;
+            line-height: 1.2;
+        }
+
+        .download-btn:hover .download-label,
+        .download-btn:hover .download-store {
+            color: #ffffff;
+        }
+
+        /* Upload Form Section */
+        .upload-section {
+            padding: 40px 0;
+            background: #ffffff;
+        }
+
+        .upload-form-container {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            color: #495057;
+            font-weight: 500;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            background: #ffffff;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            color: #495057;
+            font-size: 14px;
+            font-family: 'Oswald', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+        }
+
+        .documents-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .file-upload-area {
+            border: 2px dashed #ced4da;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            background: #ffffff;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .file-upload-area:hover {
+            border-color: #007bff;
+            background: rgba(0, 123, 255, 0.05);
+        }
+
+        .file-upload-area.dragover {
+            border-color: #007bff;
+            background: rgba(0, 123, 255, 0.1);
+        }
+
+        .upload-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .upload-content i {
+            font-size: 24px;
+            color: #007bff;
+        }
+
+        .upload-text {
+            color: #495057;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .upload-subtext {
+            color: #6c757d;
+            font-size: 12px;
+        }
+
+        .file-input {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .file-selected {
+            display: none;
+            color: #4caf50;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .file-selected i {
+            color: #4caf50;
+        }
+
+        .form-actions {
+            text-align: center;
+            margin-top: 48px;
+        }
+
+        /* Alert Messages */
+        .alert {
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.4;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .alert-success {
+            background-color: #1a4d3a;
+            border: 1px solid #2d8659;
+            color: #4ade80;
+        }
+
+        .alert-danger {
+            background-color: #4d1a1a;
+            border: 1px solid #dc2626;
+            color: #f87171;
+        }
+
+        .alert i {
+            font-size: 16px;
+            margin-right: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 30px 0 20px;
+            }
+
+            .companies-section {
+                padding: 30px 0;
+            }
+
+            .download-section {
+                padding: 30px 0;
+            }
+
+            .upload-section {
+                padding: 30px 0;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+                text-align: center;
+            }
+
+            .companies-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 16px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .documents-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .upload-form-container {
+                padding: 32px 24px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 12px;
+                align-items: center;
+            }
+
+            .hero-buttons .cta-button,
+            .hero-buttons .btn-secondary {
+                width: 100%;
+                max-width: 280px;
+                min-width: auto;
+            }
+
+            .language-switcher {
+                top: 5px;
+                right: 5px;
+                padding: 4px;
+            }
+
+            .language-switcher button {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
+            .download-buttons {
+                flex-direction: column;
+                gap: 16px;
+                align-items: center;
+            }
+
+            .download-section .text-center {
+                margin-bottom: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button onclick="switchLanguage('ru')" id="ru-btn" class="active">РУС</button>
+        <button onclick="switchLanguage('en')" id="en-btn">ENG</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title" data-ru="Добро пожаловать, водитель!" data-en="Welcome, Driver!">Добро пожаловать, водитель!</h1>
+                    
+                    <!-- Testimonial Quote from Zafar -->
+                    <div class="testimonial-container">
+                        <div class="testimonial-avatar">
+                            <img src="static/images/zafar_1750495845217.png" alt="Zafar Safarov" class="testimonial-photo">
+                        </div>
+                        <blockquote class="testimonial-quote">
+                            <p class="quote-text" data-ru="Поздравляем с новым статусом owner-operator! Теперь вы управляете своим бизнесом и будущим. Ваш грузовик — ваш главный актив. Своевременная замена масла и деталей сохранит его в отличном состоянии. Уже через 3 года вы сможете продать его по выгодной цене и перейти на новую модель.
+
+Мы предоставим список проверенных брокеров и диспетчеров. Выплаты — еженедельно (по четвергам), с опцией быстрых платежей (доступны через несколько часов после доставки).
+
+Находить грузы рядом и делать ставки.
+
+Загружать документы и подписывать договоры онлайн.
+
+Контролировать финансы и отслеживать успехи.
+
+Успех в США начинается с исправного грузовика и надёжных партнёров. Мы всегда на связи — обращайтесь!" data-en="Congratulations on your new owner-operator status! Now you control your business and future. Your truck is your main asset. Timely oil and parts replacement will keep it in excellent condition. In just 3 years, you'll be able to sell it at a good price and upgrade to a new model.
+
+We'll provide a list of trusted brokers and dispatchers. Payments are weekly (Thursdays), with quick payment options (available within hours after delivery).
+
+Find nearby loads and place bids.
+
+Upload documents and sign contracts online.
+
+Control finances and track success.
+
+Success in the USA starts with a reliable truck and trusted partners. We're always in touch — contact us!">
+                                Поздравляем с новым статусом owner-operator! Теперь вы управляете своим бизнесом и будущим. Ваш грузовик — ваш главный актив. Своевременная замена масла и деталей сохранит его в отличном состоянии. Уже через 3 года вы сможете продать его по выгодной цене и перейти на новую модель.
+
+Мы предоставим список проверенных брокеров и диспетчеров. Выплаты — еженедельно (по четвергам), с опцией быстрых платежей (доступны через несколько часов после доставки).
+
+Находить грузы рядом и делать ставки.
+
+Загружать документы и подписывать договоры онлайн.
+
+Контролировать финансы и отслеживать успехи.
+
+Успех в США начинается с исправного грузовика и надёжных партнёров. Мы всегда на связи — обращайтесь!
+                            </p>
+                            <cite class="quote-author" data-ru="— Зафар Сафаров" data-en="— Zafar Safarov">— Зафар Сафаров</cite>
+                        </blockquote>
+                    </div>
+                    
+                    <div class="hero-buttons">
+                        <a href="#upload" class="cta-button" onclick="scrollToUpload()" data-ru="Начать работу" data-en="Get Started">Начать работу</a>
+                        <a href="#download-app" class="btn-secondary" data-ru="Скачать приложение" data-en="Download App">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span data-ru="Скачать приложение" data-en="Download App">Скачать приложение</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Companies Section -->
+    <section class="companies-section">
+        <div class="container">
+            <h2 class="section-title" data-ru="Партнерские брокерские компании" data-en="Partner Brokerage Companies">Партнерские брокерские компании</h2>
+            <p class="section-subtitle" data-ru="Мы работаем с ведущими логистическими компаниями, чтобы обеспечить постоянные высокооплачиваемые грузы для наших владельцев-операторов" data-en="We work with industry-leading logistics companies to ensure consistent, high-paying loads for our owner-operators">
+                Мы работаем с ведущими логистическими компаниями, чтобы обеспечить постоянные высокооплачиваемые грузы для наших владельцев-операторов
+            </p>
+            
+            <div class="companies-grid">
+                <div class="company-card">
+                    <div class="company-logo">
+                        <img src="static/images/logo1.webp" alt="Partner Company 1">
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">
+                        <img src="static/images/logo2.webp" alt="Partner Company 2">
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">
+                        <img src="static/images/logo3.webp" alt="Partner Company 3">
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">
+                        <img src="static/images/logo4.webp" alt="Partner Company 4">
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">
+                        <img src="static/images/logo5.webp" alt="Partner Company 5">
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">
+                        <img src="static/images/logo6.webp" alt="Partner Company 6">
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">
+                        <img src="static/images/logo7.webp" alt="Partner Company 7">
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">
+                        <img src="static/images/logo8.webp" alt="Partner Company 8">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upload Section -->
+    <section class="upload-section" id="upload">
+        <div class="container">
+            <h2 class="section-title" data-ru="Отправить документы" data-en="Submit Your Documents">Отправить документы</h2>
+            <p class="section-subtitle" data-ru="Для работы с диспетчерскими компаниями предоставьте следующие документы согласно требованиям США" data-en="To join dispatch companies, provide the following documents according to US requirements">
+                Для работы с диспетчерскими компаниями предоставьте следующие документы согласно требованиям США
+            </p>
+
+            <div class="upload-form-container">
+                <form name="document-upload" method="POST" enctype="multipart/form-data" action="/api/submit" id="documentForm">
+                    <!-- Hidden honeypot field for spam protection -->
+                    <input type="text" name="bot-field" style="display:none !important">
+                    
+                    <!-- Personal Information -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName" class="form-label" data-ru="Полное имя *" data-en="Full Name *">Полное имя *</label>
+                            <input type="text" id="fullName" name="full_name" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-label" data-ru="Номер телефона *" data-en="Phone Number *">Номер телефона *</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="(555) 123-4567" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label" data-ru="Адрес электронной почты *" data-en="Email Address *">Адрес электронной почты *</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+
+                    <!-- Document Uploads -->
+                    <h3 style="color: #333333; margin: 30px 0 20px; font-size: 1.2rem;" data-ru="Обязательные документы" data-en="Required Documents">Обязательные документы</h3>
+                    <div class="documents-grid">
+                        <div class="file-upload-area" data-field="drivers_license">
+                            <input type="file" name="drivers_license" class="file-input" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,image/*" capture="environment" required>
+                            <div class="upload-content">
+                                <i class="fas fa-id-card"></i>
+                                <div class="upload-text" data-ru="Водительские права" data-en="Driver License">Водительские права</div>
+                                <div class="upload-subtext" data-ru="Нажмите или перетащите для загрузки" data-en="Click or drag to upload">Нажмите или перетащите для загрузки</div>
+                            </div>
+                            <div class="file-selected">
+                                <i class="fas fa-check-circle"></i>
+                                <span class="file-name"></span>
+                            </div>
+                        </div>
+
+                        <div class="file-upload-area" data-field="medical_certificate">
+                            <input type="file" name="medical_certificate" class="file-input" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,image/*" capture="environment" required>
+                            <div class="upload-content">
+                                <i class="fas fa-user-md"></i>
+                                <div class="upload-text" data-ru="Медицинская справка DOT" data-en="DOT Medical Certificate">Медицинская справка DOT</div>
+                                <div class="upload-subtext" data-ru="Нажмите или перетащите для загрузки" data-en="Click or drag to upload">Нажмите или перетащите для загрузки</div>
+                            </div>
+                            <div class="file-selected">
+                                <i class="fas fa-check-circle"></i>
+                                <span class="file-name"></span>
+                            </div>
+                        </div>
+
+
+
+                        <div class="file-upload-area" data-field="vehicle_registration">
+                            <input type="file" name="vehicle_registration" class="file-input" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,image/*" capture="environment" required>
+                            <div class="upload-content">
+                                <i class="fas fa-truck"></i>
+                                <div class="upload-text" data-ru="Регистрация транспортного средства" data-en="Vehicle Registration">Регистрация транспортного средства</div>
+                                <div class="upload-subtext" data-ru="Нажмите или перетащите для загрузки" data-en="Click or drag to upload">Нажмите или перетащите для загрузки</div>
+                            </div>
+                            <div class="file-selected">
+                                <i class="fas fa-check-circle"></i>
+                                <span class="file-name"></span>
+                            </div>
+                        </div>
+
+                        <div class="file-upload-area" data-field="insurance_certificate">
+                            <input type="file" name="insurance_certificate" class="file-input" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,image/*" capture="environment" required>
+                            <div class="upload-content">
+                                <i class="fas fa-shield-alt"></i>
+                                <div class="upload-text" data-ru="Страховой сертификат" data-en="Insurance Certificate">Страховой сертификат</div>
+                                <div class="upload-subtext" data-ru="Нажмите или перетащите для загрузки" data-en="Click or drag to upload">Нажмите или перетащите для загрузки</div>
+                            </div>
+                            <div class="file-selected">
+                                <i class="fas fa-check-circle"></i>
+                                <span class="file-name"></span>
+                            </div>
+                        </div>
+
+
+
+                        <div class="file-upload-area" data-field="w9_form">
+                            <input type="file" name="w9_form" class="file-input" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,image/*" capture="environment" required>
+                            <div class="upload-content">
+                                <i class="fas fa-file-alt"></i>
+                                <div class="upload-text" data-ru="Форма W9" data-en="W9 Form">Форма W9</div>
+                                <div class="upload-subtext" data-ru="Нажмите или перетащите для загрузки" data-en="Click or drag to upload">Нажмите или перетащите для загрузки</div>
+                            </div>
+                            <div class="file-selected">
+                                <i class="fas fa-check-circle"></i>
+                                <span class="file-name"></span>
+                            </div>
+                        </div>
+
+                        <div class="file-upload-area" data-field="mc_authority">
+                            <input type="file" name="mc_authority" class="file-input" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,image/*" capture="environment">
+                            <div class="upload-content">
+                                <i class="fas fa-certificate"></i>
+                                <div class="upload-text" data-ru="MC Authority (не обязательно)" data-en="MC Authority (Optional)">MC Authority (не обязательно)</div>
+                                <div class="upload-subtext" data-ru="Нажмите или перетащите для загрузки" data-en="Click or drag to upload">Нажмите или перетащите для загрузки</div>
+                            </div>
+                            <div class="file-selected">
+                                <i class="fas fa-check-circle"></i>
+                                <span class="file-name"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="cta-button" style="font-size: 16px; padding: 16px 32px;" data-ru="Отправить документы" data-en="Submit Documents">
+                            <i class="fas fa-paper-plane"></i> <span data-ru="Отправить документы" data-en="Submit Documents">Отправить документы</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download App Section -->
+    <section class="download-section" id="download-app">
+        <div class="container">
+            <div class="text-center mb-8">
+                <h2 class="section-title" data-ru="Скачать наше приложение" data-en="Download Our App">Скачать наше приложение</h2>
+                <p class="text-large" data-ru="Получите наше мобильное приложение для упрощения управления грузами и загрузки документов" data-en="Get our mobile app for easier load management and document uploads">
+                    Получите наше мобильное приложение для упрощения управления грузами и загрузки документов
+                </p>
+            </div>
+            
+            <div class="download-buttons">
+                <a href="https://play.google.com/store/apps/details?id=com.cargoetl&pli=1" target="_blank" class="download-btn">
+                    <i class="fab fa-google-play"></i>
+                    <div class="download-text">
+                        <span class="download-label">Get it on</span>
+                        <span class="download-store">Google Play</span>
+                    </div>
+                </a>
+                <a href="https://apps.apple.com/us/app/cargoetl/id6448040261" target="_blank" class="download-btn">
+                    <i class="fab fa-apple"></i>
+                    <div class="download-text">
+                        <span class="download-label">Download on the</span>
+                        <span class="download-store">App Store</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        console.log('Modern trucking landing page loaded');
+
+        // Smooth scrolling to upload section
+        function scrollToUpload() {
+            document.getElementById('upload').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initFileUploads();
+            initFormValidation();
+        });
+
+        function initFileUploads() {
+            const uploadAreas = document.querySelectorAll('.file-upload-area');
+            
+            uploadAreas.forEach(area => {
+                const input = area.querySelector('.file-input');
+                const uploadContent = area.querySelector('.upload-content');
+                const fileSelected = area.querySelector('.file-selected');
+                const fileName = area.querySelector('.file-name');
+
+                // Click to upload
+                area.addEventListener('click', (e) => {
+                    // Only prevent if clicking on the area, not the input
+                    if (e.target === input) return;
+                    e.stopPropagation();
+                    input.click();
+                });
+
+                // Drag and drop
+                area.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    area.classList.add('dragover');
+                });
+
+                area.addEventListener('dragleave', () => {
+                    area.classList.remove('dragover');
+                });
+
+                area.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    area.classList.remove('dragover');
+                    
+                    const files = e.dataTransfer.files;
+                    if (files.length > 0) {
+                        input.files = files;
+                        updateFileDisplay(area, uploadContent, fileSelected, fileName, files[0]);
+                    }
+                });
+
+                // File input change
+                input.addEventListener('change', (e) => {
+                    if (e.target.files.length > 0) {
+                        updateFileDisplay(area, uploadContent, fileSelected, fileName, e.target.files[0]);
+                    }
+                });
+            });
+        }
+
+        function updateFileDisplay(area, uploadContent, fileSelected, fileName, file) {
+            uploadContent.style.display = 'none';
+            fileSelected.style.display = 'flex';
+            fileName.textContent = file.name;
+            area.style.borderColor = '#4caf50';
+            area.style.backgroundColor = 'rgba(76, 175, 80, 0.1)';
+        }
+
+        function initFormValidation() {
+            const phoneInput = document.getElementById('phone');
+            if (phoneInput) {
+                phoneInput.addEventListener('input', function() {
+                    this.value = formatPhoneNumber(this.value);
+                });
+            }
+
+            // Form submission handler
+            const form = document.getElementById('documentForm');
+            if (form) {
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    if (!validateForm()) {
+                        return false;
+                    }
+                    
+                    await submitToAPI(form);
+                });
+            }
+        }
+
+        async function submitToAPI(form) {
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            
+            // Show loading state
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + (currentLanguage === 'ru' ? 'Отправка...' : 'Submitting...');
+            submitButton.disabled = true;
+            
+            try {
+                const formData = new FormData(form);
+                
+                const response = await fetch('/api/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    const successMsg = currentLanguage === 'ru' ? 
+                        'Документы успешно отправлены! Мы свяжемся с вами в течение 24-48 часов.' :
+                        'Documents successfully submitted! We will contact you within 24-48 hours.';
+                    
+                    showSuccessMessage(successMsg);
+                    form.reset();
+                    resetFileUploads();
+                    
+                    // Show additional info about delivery methods
+                    if (result.telegram_sent && result.email_sent) {
+                        console.log('Documents sent via both Telegram and email');
+                    } else if (result.telegram_sent) {
+                        console.log('Documents sent via Telegram');
+                    } else if (result.email_sent) {
+                        console.log('Documents sent via email');
+                    }
+                } else {
+                    const errorMsg = currentLanguage === 'ru' ? 
+                        result.error || 'Не удалось отправить документы. Попробуйте еще раз.' :
+                        result.error || 'Failed to submit documents. Please try again.';
+                    showErrorMessage(errorMsg);
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                const errorMsg = currentLanguage === 'ru' ? 
+                    'Произошла ошибка при отправке формы. Попробуйте еще раз.' :
+                    'An error occurred while submitting the form. Please try again.';
+                showErrorMessage(errorMsg);
+            } finally {
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+            }
+        }
+
+        function validateForm() {
+            const form = document.getElementById('documentUploadForm');
+            const requiredFields = form.querySelectorAll('[required]');
+            let isValid = true;
+
+            requiredFields.forEach(field => {
+                if (field.type === 'file') {
+                    if (!field.files.length) {
+                        markFieldInvalid(field);
+                        isValid = false;
+                    } else {
+                        markFieldValid(field);
+                    }
+                } else {
+                    if (!field.value.trim()) {
+                        markFieldInvalid(field);
+                        isValid = false;
+                    } else {
+                        markFieldValid(field);
+                    }
+                }
+            });
+
+            if (!isValid) {
+                scrollToFirstError();
+            }
+            
+            return isValid;
+        }
+
+        function markFieldInvalid(field) {
+            field.style.borderColor = '#dc2626';
+            const container = field.closest('.file-upload-area, .form-group');
+            container.classList.add('error');
+        }
+
+        function markFieldValid(field) {
+            field.style.borderColor = '#4caf50';
+            const container = field.closest('.file-upload-area, .form-group');
+            container.classList.remove('error');
+        }
+
+        function scrollToFirstError() {
+            const firstError = document.querySelector('.error');
+            if (firstError) {
+                firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        function formatPhoneNumber(value) {
+            const cleaned = value.replace(/\D/g, '');
+            const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+            
+            if (match) {
+                return `(${match[1]}) ${match[2]}-${match[3]}`;
+            }
+            
+            return value;
+        }
+
+        function showSuccessMessage(message = 'Documents successfully submitted! We will contact you within 24-48 hours.') {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'alert alert-success';
+            messageDiv.innerHTML = `
+                <i class="fas fa-check-circle" style="margin-right: 8px;"></i>
+                ${message}
+            `;
+            
+            // Insert at top of form container
+            const formContainer = document.querySelector('.upload-form-container');
+            formContainer.insertBefore(messageDiv, formContainer.firstChild);
+            
+            // Auto-hide after 10 seconds
+            setTimeout(() => {
+                messageDiv.style.opacity = '0';
+                setTimeout(() => messageDiv.remove(), 300);
+            }, 10000);
+            
+            // Scroll to message
+            messageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function showErrorMessage(message) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'alert alert-danger';
+            messageDiv.innerHTML = `
+                <i class="fas fa-exclamation-triangle" style="margin-right: 8px;"></i>
+                ${message}
+            `;
+            
+            // Insert at top of form container
+            const formContainer = document.querySelector('.upload-form-container');
+            formContainer.insertBefore(messageDiv, formContainer.firstChild);
+            
+            // Auto-hide after 8 seconds
+            setTimeout(() => {
+                messageDiv.style.opacity = '0';
+                setTimeout(() => messageDiv.remove(), 300);
+            }, 8000);
+            
+            // Scroll to message
+            messageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function resetFileUploads() {
+            const fileInputs = document.querySelectorAll('input[type="file"]');
+            fileInputs.forEach(input => {
+                const uploadArea = input.closest('.file-upload-area');
+                const uploadContent = uploadArea.querySelector('.upload-content');
+                const fileSelected = uploadArea.querySelector('.file-selected');
+                
+                // Reset to original state
+                uploadContent.style.display = 'flex';
+                fileSelected.style.display = 'none';
+                uploadArea.style.borderColor = '#e9ecef';
+                uploadArea.style.backgroundColor = '#ffffff';
+            });
+        }
+
+        // Language switching functionality
+        let currentLanguage = 'ru'; // Default to Russian
+
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+            
+            // Update button states
+            document.getElementById('ru-btn').classList.toggle('active', lang === 'ru');
+            document.getElementById('en-btn').classList.toggle('active', lang === 'en');
+            
+            // Update all elements with data attributes
+            const elementsWithTranslation = document.querySelectorAll('[data-ru], [data-en]');
+            elementsWithTranslation.forEach(element => {
+                const translationKey = `data-${lang}`;
+                if (element.hasAttribute(translationKey)) {
+                    element.textContent = element.getAttribute(translationKey);
+                }
+            });
+            
+            // Store language preference
+            localStorage.setItem('preferred-language', lang);
+        }
+
+        // Initialize language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLanguage = localStorage.getItem('preferred-language') || 'ru';
+            switchLanguage(savedLanguage);
+        });
+    </script>
+</body>
+</html>
