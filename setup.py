@@ -1,0 +1,19 @@
+from setuptools import setup
+
+setup(
+    name="trucking-app",
+    version="1.0.0",
+    py_modules=["main", "app", "telegram_bot", "email_service", "forms"],
+    install_requires=[
+        "email-validator==2.2.0",
+        "flask==3.1.0",
+        "flask-sqlalchemy==3.1.1",
+        "flask-wtf==1.2.1",
+        "gunicorn==23.0.0",
+        "psycopg2-binary==2.9.9",
+        "python-telegram-bot==21.8",
+        "sendgrid==6.11.0",
+        "werkzeug==3.1.3",
+        "wtforms==3.2.1"
+    ],
+)
