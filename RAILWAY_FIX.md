@@ -13,8 +13,8 @@ Railway использует uv для установки пакетов, кот
 main.py                 # Точка входа приложения
 app.py                  # Основное Flask приложение  
 requirements.txt        # Зависимости Python (переименован из deps.txt)
-nixpacks.toml          # Конфигурация Nixpacks для Railway
-railway.json           # Настройки Railway
+runtime.txt            # Версия Python для Railway
+railway.json           # Настройки Railway (упрощенный)
 Procfile              # Команда запуска
 setup.py              # Альтернативная конфигурация зависимостей
 ```
