@@ -85,8 +85,9 @@
 
 **Build failed с uv/Nixpacks ошибками:**
 - Убедитесь что файлы распакованы из ZIP в корень репозитория
-- Должны присутствовать: main.py, deps.txt, setup.py, pyproject.toml
-- Попробуйте удалить pyproject.toml и оставить только deps.txt + setup.py
+- Должны присутствовать: main.py, requirements.txt, setup.py, nixpacks.toml
+- НЕ ЗАГРУЖАЙТЕ pyproject.toml - он конфликтует с Railway uv
+- Используйте только requirements.txt для зависимостей
 
 **Приложение не запускается:**
 - Проверьте наличие `SESSION_SECRET` в переменных
